@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://c3jr3mexsgehr"]
+
+[ext_resource type="Texture2D" uid="uid://de8t6gm7bk8ge" path="res://textures/items/apple.png" id="1_axim2"]
+[ext_resource type="Script" path="res://scripts/item_resource.gd" id="1_pvk38"]
+
+[resource]
+script = ExtResource("1_pvk38")
+item_name = "Apple"
+item_texture = ExtResource("1_axim2")
+item_type = Array[int]([2])
+item_description = "A delicous apple!"
+stackable = true
+max_stackable = 64

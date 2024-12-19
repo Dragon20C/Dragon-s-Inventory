@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://bhnxgayjudp0"]
+
+[ext_resource type="Texture2D" uid="uid://cmir566716636" path="res://textures/items/hammer.png" id="1_1a3vh"]
+[ext_resource type="Script" path="res://scripts/item_resource.gd" id="1_fmj36"]
+
+[resource]
+script = ExtResource("1_fmj36")
+item_name = "Stone Hammer"
+item_texture = ExtResource("1_1a3vh")
+item_type = Array[int]([0, 1])
+item_description = "A trusty stone hammer, ready for forging!"
+stackable = true
+max_stackable = 1

@@ -1,0 +1,114 @@
+[gd_scene load_steps=15 format=3 uid="uid://biw87cqwiwpud"]
+
+[ext_resource type="Texture2D" uid="uid://dry7k40sk6jhv" path="res://textures/gui/Container_Background.png" id="1_0vc4m"]
+[ext_resource type="Script" path="res://scripts/inventory_manager.gd" id="1_2ysft"]
+[ext_resource type="Script" path="res://scripts/item_resource.gd" id="2_ebdab"]
+[ext_resource type="Resource" uid="uid://c3jr3mexsgehr" path="res://items/Apple.tres" id="3_1w3p1"]
+[ext_resource type="Resource" uid="uid://cb4ci6m1vcjsp" path="res://items/Cola.tres" id="4_w8fg6"]
+[ext_resource type="Resource" uid="uid://b6gnvktewm8d8" path="res://items/StoneAxe.tres" id="5_ibvge"]
+[ext_resource type="Resource" uid="uid://bhnxgayjudp0" path="res://items/StoneHammer.tres" id="6_6g15y"]
+[ext_resource type="Resource" uid="uid://r7oxu54mcvdr" path="res://items/StonePickaxe.tres" id="7_8exuh"]
+[ext_resource type="Resource" uid="uid://b7knxd5gs0o87" path="res://items/StoneShovel.tres" id="8_rqecr"]
+[ext_resource type="Resource" uid="uid://bd4aavx6iq3r8" path="res://items/StoneSword.tres" id="9_buadb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jwfae"]
+sky_top_color = Color(0.236385, 0.659348, 1, 1)
+sky_horizon_color = Color(0.559097, 0.783714, 0.928408, 1)
+ground_bottom_color = Color(2.5028e-06, 0.475508, 0.713632, 1)
+ground_horizon_color = Color(0.559097, 0.783714, 0.928408, 1)
+
+[sub_resource type="Sky" id="Sky_u0eln"]
+sky_material = SubResource("ProceduralSkyMaterial_jwfae")
+
+[sub_resource type="Environment" id="Environment_yon03"]
+background_mode = 2
+sky = SubResource("Sky_u0eln")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mvjph"]
+texture = ExtResource("1_0vc4m")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[node name="Game" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yon03")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Draggable" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+z_index = 2
+z_as_relative = false
+
+[node name="InventoryManager" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("draggable", "inventory_container", "hotbar_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ysft")
+inventory = Array[ExtResource("2_ebdab")]([ExtResource("3_1w3p1"), ExtResource("4_w8fg6"), ExtResource("5_ibvge"), ExtResource("6_6g15y"), ExtResource("7_8exuh"), ExtResource("8_rqecr"), ExtResource("9_buadb"), ExtResource("4_w8fg6"), ExtResource("6_6g15y"), ExtResource("4_w8fg6"), ExtResource("4_w8fg6"), ExtResource("3_1w3p1")])
+draggable = NodePath("../Draggable")
+inventory_container = NodePath("MarginContainer/VBoxContainer/InventoryPanel/GridContainer")
+hotbar_container = NodePath("MarginContainer/VBoxContainer/HotbarPanel/HBoxContainer")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/InventoryManager"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -310.0
+offset_top = -578.0
+offset_right = 310.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/InventoryManager/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 128
+alignment = 1
+
+[node name="InventoryPanel" type="PanelContainer" parent="CanvasLayer/InventoryManager/MarginContainer/VBoxContainer"]
+texture_filter = 3
+custom_minimum_size = Vector2(600, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_mvjph")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/InventoryManager/MarginContainer/VBoxContainer/InventoryPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 8
+
+[node name="HotbarPanel" type="PanelContainer" parent="CanvasLayer/InventoryManager/MarginContainer/VBoxContainer"]
+texture_filter = 3
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_mvjph")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/InventoryManager/MarginContainer/VBoxContainer/HotbarPanel"]
+layout_mode = 2
+alignment = 1

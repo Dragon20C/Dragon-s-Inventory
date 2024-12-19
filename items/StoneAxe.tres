@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://b6gnvktewm8d8"]
+
+[ext_resource type="Script" path="res://scripts/item_resource.gd" id="1_0wx88"]
+[ext_resource type="Texture2D" uid="uid://b4o1hh08nx87i" path="res://textures/items/axe.png" id="1_y6kq1"]
+
+[resource]
+script = ExtResource("1_0wx88")
+item_name = "Stone Axe"
+item_texture = ExtResource("1_y6kq1")
+item_type = Array[int]([0, 1])
+item_description = "A trusty stone axe, ready for chopping!"
+stackable = true
+max_stackable = 1

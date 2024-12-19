@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://b7knxd5gs0o87"]
+
+[ext_resource type="Texture2D" uid="uid://cgp0mrn1b1gpi" path="res://textures/items/spade.png" id="1_fl2qi"]
+[ext_resource type="Script" path="res://scripts/item_resource.gd" id="1_pvjx8"]
+
+[resource]
+script = ExtResource("1_pvjx8")
+item_name = "Stone Shovel"
+item_texture = ExtResource("1_fl2qi")
+item_type = Array[int]([0])
+item_description = "A trusty stone shovel, ready for removing dirt!"
+stackable = true
+max_stackable = 1

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://bd4aavx6iq3r8"]
+
+[ext_resource type="Script" path="res://scripts/item_resource.gd" id="1_46838"]
+[ext_resource type="Texture2D" uid="uid://bfu0oxa8jqah0" path="res://textures/items/sword.png" id="1_q1727"]
+
+[resource]
+script = ExtResource("1_46838")
+item_name = "Stone Sword"
+item_texture = ExtResource("1_q1727")
+item_type = Array[int]([1])
+item_description = "A trusty stone sword, ready for defeating your enemies!"
+stackable = true
+max_stackable = 1

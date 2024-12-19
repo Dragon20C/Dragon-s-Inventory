@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://r7oxu54mcvdr"]
+
+[ext_resource type="Script" path="res://scripts/item_resource.gd" id="1_0iuwv"]
+[ext_resource type="Texture2D" uid="uid://cyfv2ae5008sp" path="res://textures/items/pick.png" id="1_vkqo5"]
+
+[resource]
+script = ExtResource("1_0iuwv")
+item_name = "Stone Pickaxe"
+item_texture = ExtResource("1_vkqo5")
+item_type = Array[int]([0])
+item_description = "A trusty stone pickaxe, ready for mining!"
+stackable = true
+max_stackable = 1

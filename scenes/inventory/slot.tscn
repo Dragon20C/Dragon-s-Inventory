@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://dkbtrbqplmpiu"]
+
+[ext_resource type="Texture2D" uid="uid://b8w36l6pg1u0g" path="res://textures/gui/Container_Slot.png" id="1_qj15t"]
+[ext_resource type="Script" path="res://scripts/slot.gd" id="1_ry7b1"]
+[ext_resource type="Texture2D" uid="uid://cjcuwtv0sfou8" path="res://textures/gui/Container_Slot_Selected.png" id="2_dhmst"]
+[ext_resource type="FontFile" uid="uid://du6ouglhemarh" path="res://fonts/at01.ttf" id="5_dia8r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h20ec"]
+texture = ExtResource("2_dhmst")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t8i1f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tlsnh"]
+texture = ExtResource("2_dhmst")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5wwqw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7xkm2"]
+
+[node name="Slot" type="Button" node_paths=PackedStringArray("item_rect", "stack_label")]
+z_index = 1
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = -1
+anchor_right = 0.05
+anchor_bottom = 0.0888889
+theme_override_styles/focus = SubResource("StyleBoxTexture_h20ec")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_t8i1f")
+theme_override_styles/hover = SubResource("StyleBoxTexture_tlsnh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5wwqw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7xkm2")
+script = ExtResource("1_ry7b1")
+item_rect = NodePath("Item")
+stack_label = NodePath("Stack")
+metadata/_edit_use_anchors_ = true
+
+[node name="SlotBG" type="TextureRect" parent="."]
+z_index = -1
+texture_filter = 3
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("1_qj15t")
+stretch_mode = 5
+
+[node name="Item" type="TextureRect" parent="."]
+z_index = -1
+texture_filter = 3
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Stack" type="Label" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.578125
+anchor_top = 0.609375
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_dia8r")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

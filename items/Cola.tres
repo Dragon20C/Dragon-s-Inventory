@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://cb4ci6m1vcjsp"]
+
+[ext_resource type="Texture2D" uid="uid://w5s858biii08" path="res://textures/items/cola.png" id="1_lwgfh"]
+[ext_resource type="Script" path="res://scripts/item_resource.gd" id="1_pyjda"]
+
+[resource]
+script = ExtResource("1_pyjda")
+item_name = "Cola"
+item_texture = ExtResource("1_lwgfh")
+item_type = Array[int]([2])
+item_description = "A refreshing drink to have in the hot summer!"
+stackable = true
+max_stackable = 64
